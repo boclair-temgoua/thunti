@@ -6,6 +6,7 @@
 /vendor
 .env
 .idea
+.DS_Store
 .env.backup
 .phpunit.result.cache
 docker-compose.override.yml
