@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     username: DataTypes.STRING,
     slug: DataTypes.STRING,
     email: { allowNull: false, type: DataTypes.STRING, unique: true },
+    isDelete: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false },
     password: DataTypes.STRING,
   }, {
     sequelize,

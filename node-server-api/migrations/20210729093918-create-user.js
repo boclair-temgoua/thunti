@@ -13,6 +13,7 @@ module.exports = {
       slug: { type: Sequelize.STRING },
       password: { type: Sequelize.STRING },
       email: { type: Sequelize.STRING },
+      isDelete: { type: Sequelize.BOOLEAN, allowNull: false, defaultValue: false },
       createdAt: { allowNull: false, type: Sequelize.DATE },
       updatedAt: { allowNull: false, type: Sequelize.DATE },
     });

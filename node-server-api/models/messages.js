@@ -13,17 +13,19 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       await message.belongsTo(models.user, {
         foreignKey: 'userId',
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
+        // onDelete: 'CASCADE',
+        // onUpdate: 'CASCADE',
         constraints: false,
       });
     }
   }
 
   message.init({
+    subject: DataTypes.TEXT,
     content: DataTypes.TEXT,
     threadId: DataTypes.STRING,
     userId: DataTypes.INTEGER.UNSIGNED,
+    isDelete: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false },
     statusRed: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false },
   }, {
     sequelize,
