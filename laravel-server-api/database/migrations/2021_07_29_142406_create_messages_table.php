@@ -15,6 +15,9 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
+            $table->boolean('statusRed')->default(false);
+            $table->unsignedBigInteger('userId')->nullable();
+            $table->longText('content')->nullable();
             $table->date('createdAt')->default(now());
             $table->date('updatedAt')->default(now());
         });

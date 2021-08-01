@@ -1014,6 +1014,13 @@ clone-response@^1.0.2:
   dependencies:
     mimic-response "^1.0.0"
 
+cloudmailin@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/cloudmailin/-/cloudmailin-0.0.3.tgz#cace89f4a0603004a1e181ae6ff0aad75a233b3c"
+  integrity sha512-EWea7qkblqV0xSO2zEZlfL8sidnPOGdEtP9x+PRes+bmsQxIaXJBuQp8iuemDyShR9ttohG4VpYOl0neSTDiIg==
+  dependencies:
+    axios "^0.21.1"
+
 cluster-key-slot@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/cluster-key-slot/-/cluster-key-slot-1.1.0.tgz#30474b2a981fb12172695833052bc0d01336d10d"

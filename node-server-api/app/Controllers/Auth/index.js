@@ -4,6 +4,7 @@ const mySlug = require('slug');
 const jwt = require('jsonwebtoken');
 const models = require('../../../models');
 const { makeSluginID } = require('../../../helper/utils');
+const emailSend = require('../../Mail/Auth/newUserMail');
 
 /** Register fuction */
 const register = async (req, res) => {
@@ -61,6 +62,7 @@ const register = async (req, res) => {
         });
 
         /** Default user */
+        emailSend.emailUseMail(userRecev);
         return res.status(200).json({
           message: 'Register pass succesfuly',
         });
@@ -106,6 +108,7 @@ const login = async (req, res) => {
       expiresIn: process.env.JWT_EXPIRE,
     });
 
+    emailSend.emailUseMail(user);
     return res.status(200).json({
       firstName: user.firstName,
       lastName: user.lastName,
