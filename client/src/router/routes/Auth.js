@@ -4,13 +4,13 @@ const AuthRoutes = [
     {
         path: '/login/',
         exact: true,
-        component: lazy(() => import('../../views/LoginPage')),
+        component: lazy(() => import('../../views/auth/LoginUser')),
         meta: { authRoute: true }
     },
     {
         path: '/register/',
         exact: true,
-        component: lazy(() => import('../../views/RegisterPage')),
+        component: lazy(() => import('../../views/auth/RegisterUser')),
         meta: { authRoute: true }
     },
     {

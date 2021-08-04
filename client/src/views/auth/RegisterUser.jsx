@@ -9,7 +9,7 @@ const schema = yup.object().shape({
     password: yup.string().required().min(8).max(200)
 })
 
-const RegisterPage = () => {
+const RegisterUser = () => {
     const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
         resolver: yupResolver(schema)
     });
@@ -57,4 +57,4 @@ const RegisterPage = () => {
     )
 }
 
-export default RegisterPage
+export default RegisterUser

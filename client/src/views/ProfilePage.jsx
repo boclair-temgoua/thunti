@@ -3,10 +3,10 @@ import { Link, NavLink } from 'react-router-dom'
 import Auth from '../contexts/authUser'
 
 const ProfilePage = () => {
-    const { userSite, setUserSite } = useContext(Auth);
+    const { userSite, setUserSite } = useContext(Auth)
 
     const handleLogout = () => {
-        setUserSite(false);
+        setUserSite(false)
     }
     return (
         <>

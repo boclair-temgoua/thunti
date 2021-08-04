@@ -1,6 +1,12 @@
 // ** React Imports
 import { Suspense, lazy } from 'react'
 import ReactDOM from 'react-dom'
+// ** Core styles
+import './@core/assets/fonts/feather/iconfont.css'
+import './@core/scss/core.scss'
+
+
+import { ThemeContext } from './contexts/ThemeColors'
 
 // ** Redux Imports
 import { Provider } from 'react-redux'
@@ -17,8 +23,10 @@ const LazyApp = lazy(() => import('./App'))
 
 ReactDOM.render(
   <Provider store={store}>
-    <Suspense fallback={'...'}>
+    <Suspense fallback={'loading...'}>
+      <ThemeContext>
         <LazyApp />
+      </ThemeContext>
     </Suspense>
   </Provider>,
   document.getElementById('root')
