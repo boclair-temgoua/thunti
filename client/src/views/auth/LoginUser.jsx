@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useForm } from "react-hook-form"
 import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from "yup";
-
+import * as yup from 'yup'
+import { Link } from 'react-router-dom'
 const schema = yup.object().shape({
     email: yup.string().email().required().min(3).max(200),
     password: yup.string().required().min(8).max(200)
@@ -12,7 +12,7 @@ const schema = yup.object().shape({
 const LoginUser = () => {
     const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
         resolver: yupResolver(schema)
-    });
+    })
     const [message, setMessage] = useState('')
 
     const onSubmit = async (data, e) => {
@@ -37,9 +37,7 @@ const LoginUser = () => {
                     <div className="collapse navbar-collapse" id="navbar-default">
                         <ul className="navbar-nav">
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" id="navbarBrowse" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-display="static">
-                                    Browse
-                                </a>
+                                <Link to={`/`}>Home</Link>
                                 <ul className="dropdown-menu dropdown-menu-arrow" aria-labelledby="navbarBrowse">
                                     <li className="dropdown-submenu dropend">
                                         <a className="dropdown-item dropdown-list-group-item dropdown-toggle" href="#">

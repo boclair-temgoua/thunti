@@ -6,6 +6,12 @@ const PageRoutes = [
         exact: true,
         component: lazy(() => import('../../views/IndexPage')),
         meta: { publicRoute: true }
+    },
+    {
+        path: '*',
+        exact: true,
+        component: lazy(() => import('../../views/pages/Error')),
+        meta: { publicRoute: true }
     }
 
 ]

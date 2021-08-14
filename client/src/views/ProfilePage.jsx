@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import Auth from '../contexts/authUser'
+import Auth from '../contexts/authContext'
 
 const ProfilePage = () => {
     const { userSite, setUserSite } = useContext(Auth)

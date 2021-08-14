@@ -29,7 +29,7 @@ const Router = () => {
   }
 
     // ** Init Error Component
-  const Error = lazy(() => import('../views/pages/Error'))
+  // const Error = lazy(() => import('../views/pages/Error'))
  /**
  ** Final Route Component Checks for Login & User Role and then redirects to the route
  */
@@ -37,9 +37,8 @@ const Router = () => {
     const route = props.route
 
     if (
-      (!isUserLoggedIn() && route.meta === undefined ) || 
-      (!isUserLoggedIn() && route.meta && !route.meta.authRoute && !route.meta.publicRoute)
-      ){
+      (!isUserLoggedIn() && route.meta === undefined) ||
+      (!isUserLoggedIn() && route.meta && !route.meta.authRoute && !route.meta.publicRoute)) {
       /**
       ** If user is not Logged in & route meta is undefined
       ** OR
@@ -105,7 +104,7 @@ const Router = () => {
         {/* If user is logged in Redirect user to DefaultRoute else to login */}
         {ResolveRoutes()}
         {/* NotFound Error page */}
-        <Route path='*' component={Error} />
+        {/* <Route path='*' exact component={Error} /> */}
       </Switch>
     </AppRouter>
   )

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import Auth from '../contexts/authUser'
+import Auth from '../contexts/authContext'
 
 const ContactPage = () => {
     const { userSite, setUserSite } = useContext(Auth)

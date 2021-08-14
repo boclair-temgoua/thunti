@@ -8,7 +8,7 @@ const DefaultRoute = '/'
 // ** Merge Routes
 const Routes = [
     ...AuthRoutes,
-    ...PageRoutes,
+    ...PageRoutes
 ]
 
 export { DefaultRoute, Routes }

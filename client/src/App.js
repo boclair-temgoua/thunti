@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import Auth from "./contexts/authUser"
+import authContext from "./contexts/authContext"
 
 // ** Get token
 import { isUserLoggedIn } from './utility'
@@ -10,9 +10,9 @@ import Router from './router/Router'
 const App = props => {
     const [userSite, setUserSite] = useState(isUserLoggedIn())
     return (
-        <Auth.Provider value={{ userSite, setUserSite }} >
+        <authContext.Provider value={{ userSite, setUserSite }} >
             <Router />
-        </Auth.Provider>
+        </authContext.Provider>
     )
 }
 export default App

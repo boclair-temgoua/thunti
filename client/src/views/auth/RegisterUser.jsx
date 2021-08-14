@@ -2,23 +2,26 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useForm } from "react-hook-form"
 import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from "yup";
+import * as yup from 'yup'
 
 const schema = yup.object().shape({
+    firstName: yup.string().required(),
     email: yup.string().email().required().min(3).max(200),
-    password: yup.string().required().min(8).max(200)
+    password: yup.string().required().min(8).max(200),
+    confirmPassword: yup.string().required().min(8).max(200)
+        .oneOf([yup.ref('password'), null], 'Passwords must match')
 })
 
 const RegisterUser = () => {
     const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
         resolver: yupResolver(schema)
-    });
+    })
     const [message, setMessage] = useState('')
 
     const onSubmit = async (data, e) => {
 
         try {
-            const response = await axios.post(`${process.env.REACT_APP_SERVER_NODE_URL}/login`, data)
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_NODE_URL}/register`, data)
             if (response) {
                 if (response.data.accessToken) {
                     localStorage.setItem(process.env.REACT_APP_BASE_NAMETOKEN, JSON.stringify(response.data))
@@ -43,11 +46,18 @@ const RegisterUser = () => {
                         </div>
                     )}
                     <form onSubmit={handleSubmit(onSubmit)}>
+
+                        <input {...register("firstName")} type="text" placeholder="firstName" />
+                        <p>{errors.firstName?.message}</p>
+
                         <input {...register("email")} type="email" placeholder="Email" />
                         <p>{errors.email?.message}</p>
 
                         <input {...register("password")} type="password" placeholder="Password" />
                         <p>{errors.password?.message}</p>
+
+                        <input {...register("confirmPassword")} type="password" placeholder="confirmPassword" />
+                        <p>{errors.confirmPassword?.message}</p>
 
                         <input type="submit" disabled={isSubmitting} />
                     </form>
