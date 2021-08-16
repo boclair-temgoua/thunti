@@ -7,18 +7,23 @@
     "require": {
         "php": "^7.3|^8.0",
         "fideloper/proxy": "^4.4",
-        "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^7.0.1",
-        "laravel/framework": "^8.40",
-        "laravel/tinker": "^2.5"
+        "fruitcake/laravel-cors": "^v2.0.4",
+        "guzzlehttp/guzzle": "^v3.8.1",
+        "laravel/framework": "^v8.54.0",
+        "laravel/helpers": "^1.4",
+        "laravel/legacy-factories": "^v1.1.0",
+        "laravel/sanctum": "^v2.11.2",
+        "laravel/socialite": "^v5.2.4",
+        "laravel/tinker": "^v2.6.1",
+        "laravel/ui": "^v3.3.0"
     },
     "require-dev": {
-        "facade/ignition": "^2.5",
-        "fakerphp/faker": "^1.9.1",
-        "laravel/sail": "^1.0.1",
-        "mockery/mockery": "^1.4.2",
-        "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3.3"
+        "facade/ignition": "^2.9.1",
+        "fakerphp/faker": "v1.15.0",
+        "laravel/sail": "^v1.9.0",
+        "mockery/mockery": "^1.4.3",
+        "nunomaduro/collision": "^v5.8.0",
+        "phpunit/phpunit": "^9.5.8"
     },
     "autoload": {
         "psr-4": {

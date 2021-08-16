@@ -5,11 +5,10 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { Link } from 'react-router-dom'
 const schema = yup.object().shape({
-    email: yup.string().email().required().min(3).max(200),
-    password: yup.string().required().min(8).max(200)
+    email: yup.string().email().required().min(3).max(200)
 })
 
-const LoginUser = () => {
+const ResetpasswordUser = () => {
     const { register, handleSubmit, formState } = useForm({
         resolver: yupResolver(schema)
     })
@@ -19,7 +18,7 @@ const LoginUser = () => {
     const onSubmit = async (data, e) => {
 
         try {
-            const response = await axios.post(`${process.env.REACT_APP_SERVER_NODE_URL}/login`, data)
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_NODE_URL}/reset_password`, data)
             if (response) {
                 if (response.data.accessToken) {
                     localStorage.setItem(process.env.REACT_APP_BASE_NAMETOKEN, JSON.stringify(response.data))
@@ -65,7 +64,7 @@ const LoginUser = () => {
             </nav>
             <div className='auth-wrapper auth-v1 px-2'>
                 <div className='auth-inner py-2'>
-                    <h1>login page</h1>
+                    <h1>reset password page</h1>
 
                     {errormessage && (
                         <div className='alert-body'>
@@ -78,16 +77,13 @@ const LoginUser = () => {
                         <input {...register("email")} type="email" placeholder="Email" />
                         <p>{errors.email?.message}</p>
 
-                        <input {...register("password")} type="password" placeholder="Password" />
-                        <p>{errors.password?.message}</p>
-
                         <input type="submit" disabled={isSubmitting} />
                     </form>
-                    <Link to={`/reset_password`}>Reset password</Link>
+                    <Link to={`/login`}>Login</Link>
                 </div>
             </div>
         </>
     )
 }
 
-export default LoginUser
+export default ResetpasswordUser

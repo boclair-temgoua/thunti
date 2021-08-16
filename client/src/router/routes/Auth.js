@@ -14,6 +14,18 @@ const AuthRoutes = [
         meta: { authRoute: true }
     },
     {
+        path: '/reset_password/',
+        exact: true,
+        component: lazy(() => import('../../views/auth/ResetpasswordUser')),
+        meta: { authRoute: true }
+    },
+    {
+        path: '/reset_password/:passwordresetToken',
+        exact: true,
+        component: lazy(() => import('../../views/auth/ResetpasswordUpdateUser')),
+        meta: { authRoute: true }
+    },
+    {
         path: '/about/',
         exact: true,
         component: lazy(() => import('../../views/AboutPage')),

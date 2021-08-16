@@ -12,19 +12,27 @@ module.exports = (sequelize, DataTypes) => {
     static async associate(models) {
       // define association here
       await message.belongsTo(models.user, {
-        foreignKey: 'userId',
-        // onDelete: 'CASCADE',
-        // onUpdate: 'CASCADE',
-        constraints: false,
+        as: 'userfrom',
+        foreignKey: 'userfromId',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+        // constraints: false,
+      });
+
+      await message.belongsTo(models.user, {
+        as: 'userto',
+        foreignKey: 'usertoId',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       });
     }
   }
 
   message.init({
-    subject: DataTypes.TEXT,
     content: DataTypes.TEXT,
-    threadId: DataTypes.STRING,
-    userId: DataTypes.INTEGER.UNSIGNED,
+    ip: DataTypes.STRING,
+    userfromId: DataTypes.INTEGER.UNSIGNED,
+    usertoId: DataTypes.INTEGER.UNSIGNED,
     isDelete: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false },
     statusRed: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false },
   }, {

@@ -3,11 +3,9 @@ import { Link, NavLink } from 'react-router-dom'
 import Auth from '../contexts/authContext'
 
 const ProfilePage = () => {
-    const { userSite, setUserSite } = useContext(Auth)
+    const { userSite } = useContext(Auth)
 
-    const handleLogout = () => {
-        setUserSite(false)
-    }
+    console.log('userSite =====>', userSite)
     return (
         <>
             <div className='auth-wrapper auth-v1 px-2'>
@@ -34,9 +32,6 @@ const ProfilePage = () => {
                                     <NavLink className="nav-link" to="/profile/">
                                         Profile {userSite.firstName} {userSite.lastName}
                                     </NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <button className="btn btn-danger" onClick={handleLogout}>Déconnexion</button>
                                 </li>
                             </>
                         )}

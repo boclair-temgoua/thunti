@@ -16,12 +16,26 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       });
+
+      await user.hasOne(models.message, {
+        foreignKey: 'userfromId',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+      });
+
+      await user.hasOne(models.message, {
+        foreignKey: 'usertoId',
+        as: 'usertoId',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+      });
     }
   }
   user.init({
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     username: DataTypes.STRING,
+    avatar: DataTypes.STRING,
     slug: DataTypes.STRING,
     email: { allowNull: false, type: DataTypes.STRING, unique: true },
     isDelete: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false },

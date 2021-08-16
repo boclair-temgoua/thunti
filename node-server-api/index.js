@@ -8,10 +8,11 @@ const helmet = require('helmet');
 const app = express();
 const logger = require('morgan');
 const authRoute = require('./routes/auth');
-// const usersRoute = require('./routes/users');
+const usersRoute = require('./routes/users');
+const messagesRoute = require('./routes/messages');
 
 /** Moteur de template */
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV !== 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
   app.get(/^((?!\/api\/v1).)*$/, (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
@@ -41,7 +42,8 @@ app.use(cors());
 /** app.use('/', [homeRoute]); */
 app.use(`/api/${process.env.NODE_API_VERSION}`, [
   authRoute,
-  // usersRoute,
+  usersRoute,
+  messagesRoute,
 ]);
 app.all('*', (req, res) => res.status(404).json('404 Not Found'));
 
