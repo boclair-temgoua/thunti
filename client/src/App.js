@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import authContext from "./contexts/authContext"
+import React, { useState } from 'react'
+import authContext from './contexts/authContext'
 import jwt from 'jsonwebtoken'
 
 // ** Get token

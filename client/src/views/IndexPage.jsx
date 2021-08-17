@@ -1,13 +1,13 @@
 import React, { useState, useContext } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
 import Auth from '../contexts/authContext'
+import { handleLogout } from '../redux/actions/auth'
 
 const IndexPage = () => {
     const { userSite, setUserSite } = useContext(Auth)
+    const dispatch = useDispatch()
 
-    const handleLogout = () => {
-        setUserSite(false)
-    }
     return (
         <>
             <div className='auth-wrapper auth-v1 px-2'>
@@ -32,11 +32,11 @@ const IndexPage = () => {
                             <>
                                 <li className="nav-item">
                                     <NavLink className="nav-link" to="/profile/">
-                                        Profile
+                                        Profile {userSite.firstName} | {userSite.lastName} | {userSite.email}
                                     </NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <button className="btn btn-danger" onClick={handleLogout}>Déconnexion</button>
+                                    <button className="btn btn-danger" onClick={() => dispatch(handleLogout())}>Déconnexion</button>
                                 </li>
                             </>
                         )}

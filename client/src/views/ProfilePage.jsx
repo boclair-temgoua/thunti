@@ -30,7 +30,7 @@ const ProfilePage = () => {
                             <>
                                 <li className="nav-item">
                                     <NavLink className="nav-link" to="/profile/">
-                                        Profile {userSite.firstName} {userSite.lastName}
+                                        Profile {userSite.firstName} | {userSite.lastName} | {userSite.email}
                                     </NavLink>
                                 </li>
                             </>
