@@ -1,6 +1,6 @@
 const { makeSluginID } = require('../../../../helper/utils');
 const models = require('../../../../models');
-const emailSend = require('../../../Mail/Auth/newUserMail');
+// const emailSend = require('../../../Mail/Auth/newUserMail');
 
 /** reset password function */
 const resetpasswordService = async (req, res, email) => {
