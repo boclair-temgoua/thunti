@@ -4,7 +4,7 @@ const UserController = require('../app/Controllers/user');
 
 const router = express.Router();
 
-// router.get('/user/profile', userAuthMiddleware.checkAuth, UserController.profile);
+router.get('/users', userAuthMiddleware.authMiddleware, UserController.index);
 // router.get('/up/:id/:username', UserController.showpublic);
 router.get('/users/:user', userAuthMiddleware.authMiddleware, UserController.show);
 // router.get('/userinfo/:user', userAuthMiddleware.checkAuth, UserController.showuserSlugin);
