@@ -1,0 +1,504 @@
+{
+	"info": {
+		"_postman_id": "f1aacf72-4dde-4457-85c3-b0ac9c79eb6e",
+		"name": "thunti",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "{{language}}",
+								"type": "text"
+							},
+							{
+								"key": "app-key",
+								"value": "{{app-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "development@thunti.dev",
+									"description": "DEV",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "pass2021",
+									"description": "DEV",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "lastName",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "firstName",
+									"value": "thunti",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "development@thunti.dev",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "pass2021",
+									"type": "text"
+								},
+								{
+									"key": "confirmPassword",
+									"value": "pass2021",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resetpassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "development@thunti.dev",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/reset_password",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reset_password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resetpasswordupdate",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "password",
+									"value": "pass2021",
+									"type": "text"
+								},
+								{
+									"key": "confirmPassword",
+									"value": "pass2021",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/reset_password/:token",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reset_password",
+								":token"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "4tsu3H7v3e1t4jdciu1dh6D8cVhMof8Ep3I"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "{{language}}",
+								"type": "text"
+							},
+							{
+								"key": "app-key",
+								"value": "{{app-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "admin@boranpay.com",
+									"description": "DEV",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "J2ll5Vd6qMOqzfU",
+									"description": "DEV",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/admin/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "get user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "sI-SI",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "app-key",
+								"value": "{{app-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "sI-SI",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "app-key",
+								"value": "{{app-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/:user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":user"
+							],
+							"variable": [
+								{
+									"key": "user",
+									"value": "1RQlfwffd5Ve14bcqkP0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "sI-SI",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "app-key",
+								"value": "{{app-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "Boclair",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Boclair",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "Boclair",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/:user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":user"
+							],
+							"variable": [
+								{
+									"key": "user",
+									"value": "1RQlfwffd5Ve14bcqkP0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "messages",
+			"item": [
+				{
+					"name": "get messages",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "sI-SI",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "app-key",
+								"value": "{{app-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}/messages/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"messages",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show user messages",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "sI-SI",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "app-key",
+								"value": "{{app-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}/messages/:userto/:userfrom",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"messages",
+								":userto",
+								":userfrom"
+							],
+							"variable": [
+								{
+									"key": "userto",
+									"value": "7d1e530a84835cdfcb0af003f4666b88741777f2"
+								},
+								{
+									"key": "userfrom",
+									"value": "3ff58ec4326ff319744105ccb390a035d0c22934"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
