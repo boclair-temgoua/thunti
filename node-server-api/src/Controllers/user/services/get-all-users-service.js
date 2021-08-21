@@ -3,12 +3,10 @@ const models = require('../../../../models');
 
 const getallusersService = async (req, res) => {
   const users = await models.user.findAll({
-    attributes: ['email', 'firstName', 'lastName', 'username', 'avatar', 'createdAt'],
+    attributes: ['email', 'firstName', 'slug', 'lastName', 'username', 'avatar', 'createdAt'],
     include: [
-      {
-        model: models.profile,
-        attributes: ['slug', 'userId'],
-      },
+      { model: models.profile, attributes: ['slug', 'userId'] },
+      { model: models.role, as: 'roles', attributes: ['name', 'label'] },
     ],
     order: [
       ['createdAt', 'DESC'],

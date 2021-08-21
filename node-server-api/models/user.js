@@ -25,7 +25,22 @@ module.exports = (sequelize, DataTypes) => {
 
       await user.hasOne(models.message, {
         foreignKey: 'usertoId',
-        as: 'usertoId',
+        as: 'userto',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+      });
+
+      // await user.hasMany(models.role_user, {
+      //   foreignKey: 'userId',
+      //   as: 'roles',
+      //   onDelete: 'CASCADE',
+      //   onUpdate: 'CASCADE',
+      // });
+
+      await user.belongsToMany(models.role, {
+        through: 'role_user',
+        foreignKey: 'userId',
+        as: 'roles',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       });

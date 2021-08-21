@@ -1,12 +1,15 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const models = require('../../../../models');
-const emailSend = require('../../../Mail/Auth/newUserMail');
 
 /** Login function */
 const loginService = async (req, res, email, password) => {
   const user = await models.user.findOne({
     where: { email },
+    include: [
+      { model: models.profile, attributes: ['slug', 'userId'] },
+      { model: models.role, as: 'roles', attributes: ['name', 'label'] },
+    ],
   });
   if (!user) {
     return res.status(400).json({ message: 'E-mail or password incorrect' });
@@ -25,13 +28,13 @@ const loginService = async (req, res, email, password) => {
     slug: user.slug,
     avatar: user.avatar,
     userId: user.id,
+    roles: user.roles,
   };
 
   const token = jwt.sign(itemUser, process.env.JWT_KEY, {
     expiresIn: process.env.JWT_EXPIRE,
   });
 
-  emailSend.emailUseMail(user);
   return res.status(200).json({ accessToken: token });
 };
 
