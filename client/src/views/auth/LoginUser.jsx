@@ -3,13 +3,14 @@ import axios from 'axios'
 import { useForm } from "react-hook-form"
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 const schema = yup.object().shape({
     email: yup.string().email().required().min(3).max(200),
     password: yup.string().required().min(8).max(200)
 })
 
 const LoginUser = () => {
+    const history = useHistory()
     const { register, handleSubmit, formState } = useForm({
         resolver: yupResolver(schema)
     })
@@ -63,6 +64,8 @@ const LoginUser = () => {
                     </div>
                 </div>
             </nav>
+
+            
             <div className='auth-wrapper auth-v1 px-2'>
                 <div className='auth-inner py-2'>
                     <h1>login page</h1>
@@ -84,6 +87,8 @@ const LoginUser = () => {
                         <input type="submit" disabled={isSubmitting} />
                     </form>
                     <Link to={`/reset_password`}>Reset password</Link>
+                    <br/>
+                    <button  onclick={() => history.push(`/register/`)}>Register</button>
                 </div>
             </div>
         </>
